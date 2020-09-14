@@ -1,7 +1,21 @@
 /* Elements */
+body {
+    background-color: #F6F7EB;
+}
 
 /* Classes */
+.container-fluid {
+    display: flex;
+}
 
+.input-group {
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #5c415d !important;
+    color: #F6F7EB;
+}
 /* ID's */
 #headerDiv {
     background-color: #393E41;
@@ -11,4 +25,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 75px;
 }
+
+#searchDiv {
+    background-color: #227c9d;
+    margin-right: 20px;
+}
+
+#currentCityDiv {
+    background-color: #5c415d;
+}
+

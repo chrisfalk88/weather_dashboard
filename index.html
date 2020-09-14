@@ -17,15 +17,24 @@
       <header class="container-fluid" id="headerDiv">
           <h1>Weather Dashboard</h1>
         </header>
-      <div class = "container">
-          <div class = "col-2" id="searchDiv">
+
+      <div class = "container-fluid">
+          <div class = "col-4" id="searchDiv">
               <!-- search bar goes here -->
+
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search Cities">
+                <div class="input-group-append">
+                  <button class="btn" type="button" id="button-addon2">Search</button>
+                </div>
+              </div>
+
 
               <!-- search history populates here  -->
 
           </div>
 
-          <div class="col-10" id="currentCityDiv">
+          <div class="col-8" id="currentCityDiv">
               <div class="row" id="searchResultsDiv">
 
               </div>
