@@ -1,0 +1,14 @@
+/* Elements */
+
+/* Classes */
+
+/* ID's */
+#headerDiv {
+    background-color: #393E41;
+    color: #F6F7EB;
+    height: 75px;
+    border-bottom: 5px solid #227c9d;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
