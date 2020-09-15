@@ -19,10 +19,10 @@
         </header>
 
       <div class = "container-fluid">
-          <div class = "col-4" id="searchDiv">
+          <div class = "col-3 rounded" id="searchDiv">
               <!-- search bar goes here -->
 
-              <div class="input-group mb-3">
+              <div class="input-group  mb-3">
                 <input type="text" class="form-control" id="userInput" placeholder="Search Cities">
                 <div class="input-group-append">
                   <button class="btn" type="button" id="button-addon2">Search</button>
@@ -30,16 +30,37 @@
               </div>
 
               <div id="searchHistory">
+            
+                <!-- search history populates here  -->
 
               </div>
 
 
-              <!-- search history populates here  -->
 
           </div>
 
-          <div class="col-8" id="currentCityDiv">
+          <div class="col-1"></div>
+
+          <div class="col-8 rounded" id="currentCityDiv">
               <div class="row" id="searchResultsDiv">
+
+                <div id="title"></div>
+
+                <div id="temperatureDiv">
+                    <h4>Temperature : <span id="temperature"></span></h4></span>
+                </div>
+
+                <div id="humidityDiv">
+                    <h4>Humidity: <span id="humidity"></span></h4>
+                </div>
+
+                <div id="windspeedDiv">
+                    <h4>Wind Speed: <span id="windspeed"></span></h4>
+                </div>
+
+                <div id="UVIndexDiv">
+                    <h4>UV Index: <span id="UVIndex"></span></h4>
+                </div>
 
               </div>
 

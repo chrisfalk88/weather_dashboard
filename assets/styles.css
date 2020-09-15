@@ -6,16 +6,32 @@ body {
 /* Classes */
 .container-fluid {
     display: flex;
+    justify-content: space-around;
 }
 
 .input-group {
     margin-top: 10px;
+    padding: 5px;
+    padding-bottom: 20px;;
 }
 
 .btn {
     background-color: #5c415d !important;
     color: #F6F7EB;
 }
+
+.searched {
+    display: flex;
+    height: 50px;
+    background-color: #F6F7EB;
+    margin: 5px;
+    justify-content: space-around;
+    align-items: center;
+    font-size: larger;
+    border: none !important;
+}
+
+
 /* ID's */
 #headerDiv {
     background-color: #393E41;
@@ -30,10 +46,19 @@ body {
 
 #searchDiv {
     background-color: #227c9d;
-    margin-right: 20px;
+
 }
 
+#searchHistory {
+    padding-bottom: 20px;
+}
 #currentCityDiv {
     background-color: #5c415d;
+}
+
+#searchResultsDiv {
+    display: flex;
+    flex-direction: column;
+
 }
 
