@@ -56,7 +56,7 @@ function searchWeather() {
 };
 
 function localstoragefunc() {
-
+        $('#searchHistory').empty();
     
         localStorage.setItem("city", JSON.stringify(searchedCities));
         console.log(localStorage.getItem("city"));
@@ -64,6 +64,17 @@ function localstoragefunc() {
         //this is making our local storage an array
         let storedCities = JSON.parse(localStorage.getItem("city"));
         console.log(storedCities);
+
+
+
+        for (i = 0; i < storedCities.length; i ++) {
+            let newDiv = $('<div>').addClass("searched rounded");
+            let a = $('<a>')
+
+            a.text(storedCities[i]);
+            newDiv.append(a);
+            $('#searchHistory').append(newDiv);
+        }
 
 }
 
