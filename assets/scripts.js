@@ -1,6 +1,7 @@
 //Variables 
-
-
+let date = moment().format("l");
+let today = moment();
+console.log(today);
 //Open Weather API Information
 
 let key = "35acf8745c429fee89a9063272d6e332";
@@ -24,10 +25,10 @@ function searchWeather() {
         let lat = response.coord.lat;
         let lon = response.coord.lon;
         let uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat + "&lon=" + lon;
-
-        //rewrite this because it creates a new title with every call 
         
         $('#title').text(response.name);
+        $('#titleDate').text("("+date+")");
+
         //convert to Fahrenheit and toFixed(2)
         $('#temperature').text(response.main.temp);
         //add percentage sign
@@ -78,27 +79,27 @@ function fiveDay() {
         //day one 
 
         //pretty sure there will need to be a comparison here for time
-
+        $('#day1Date').text(today.add(1, 'days').format("l"));
         $('#day1Temp').text(res.list[0].main.temp);
         $('#day1Hum').text(res.list[0].main.humidity);
 
         //day two
-
+        $('#day2Date').text(today.add(1, 'days').format("l"));
         $('#day2Temp').text(res.list[5].main.temp);
         $('#day2Hum').text(res.list[5].main.humidity);
 
          //day three
-
+        $('#day3Date').text(today.add(1, 'days').format("l"));
         $('#day3Temp').text(res.list[10].main.temp);
         $('#day3Hum').text(res.list[10].main.humidity);
 
         //day four
-
+        $('#day4Date').text(today.add(1, 'days').format("l"));
         $('#day4Temp').text(res.list[20].main.temp);
         $('#day4Hum').text(res.list[20].main.humidity);
 
         //day four
-
+        $('#day5Date').text(today.add(1, 'days').format("l"));
         $('#day5Temp').text(res.list[30].main.temp);
         $('#day5Hum').text(res.list[30].main.humidity)
 
