@@ -31,7 +31,10 @@ body {
     border: none !important;
 }
 
-
+.dayDiv {
+    background-color: #F6F7EB;
+    padding: 15px;
+}
 /* ID's */
 #headerDiv {
     background-color: #393E41;
@@ -53,12 +56,18 @@ body {
     padding-bottom: 20px;
 }
 #currentCityDiv {
-    background-color: #5c415d;
+    background-color: #227c9d;
 }
 
 #searchResultsDiv {
     display: flex;
     flex-direction: column;
+    padding: 15px;
+}
 
+#fiveDayForecastDiv{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;;
 }
 

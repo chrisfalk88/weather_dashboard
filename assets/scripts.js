@@ -21,7 +21,7 @@ function searchWeather() {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-
+        console.log(response);
         let lat = response.coord.lat;
         let lon = response.coord.lon;
         let uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat + "&lon=" + lon;
@@ -82,27 +82,31 @@ function fiveDay() {
         $('#day1Date').text(today.add(1, 'days').format("l"));
         $('#day1Temp').text(res.list[0].main.temp);
         $('#day1Hum').text(res.list[0].main.humidity);
+        today = moment();
 
         //day two
-        $('#day2Date').text(today.add(1, 'days').format("l"));
+        $('#day2Date').text(today.add(2, 'days').format("l"));
         $('#day2Temp').text(res.list[5].main.temp);
         $('#day2Hum').text(res.list[5].main.humidity);
+        today = moment();
 
          //day three
-        $('#day3Date').text(today.add(1, 'days').format("l"));
+        $('#day3Date').text(today.add(3, 'days').format("l"));
         $('#day3Temp').text(res.list[10].main.temp);
         $('#day3Hum').text(res.list[10].main.humidity);
+        today = moment();
 
         //day four
-        $('#day4Date').text(today.add(1, 'days').format("l"));
+        $('#day4Date').text(today.add(4, 'days').format("l"));
         $('#day4Temp').text(res.list[20].main.temp);
         $('#day4Hum').text(res.list[20].main.humidity);
+        today = moment();
 
         //day four
-        $('#day5Date').text(today.add(1, 'days').format("l"));
+        $('#day5Date').text(today.add(5, 'days').format("l"));
         $('#day5Temp').text(res.list[30].main.temp);
         $('#day5Hum').text(res.list[30].main.humidity)
-
+        today = moment();
     });
 }
 
