@@ -26,13 +26,9 @@ function searchWeather() {
         let uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat + "&lon=" + lon;
 
         //rewrite this because it creates a new title with every call 
-        let newTitle = $('<h1>');
-        newTile="";
-        newTitle.text(response.name);
-        $('#title').append(newTitle);
-
-
-        //convert to Fahrenheit 
+        
+        $('#title').text(response.name);
+        //convert to Fahrenheit and toFixed(2)
         $('#temperature').text(response.main.temp);
         //add percentage sign
         $('#humidity').text(response.main.humidity);
@@ -65,25 +61,49 @@ function localstoragefunc() {
         console.log(localStorage.getItem("city"));
 
         //this is making our local storage an array
-        let text = JSON.parse(localStorage.getItem("city"));
-        console.log(text);
-
-        for (i = 0; i < text.length; i ++) {
-            //this is printing every item that we pulled from local storage    
-            console.log(text[i]);
-
-            let newDiv = $('<div>');
-            let a = $('<button>').addClass("searched");
-            a.text(text[i]);
-            newDiv.append(a);
-            $('#searchHistory').append(newDiv);
-
-
-        }
+        let storedCities = JSON.parse(localStorage.getItem("city"));
+        console.log(storedCities);
 
 }
 
+function fiveDay() {
+    let selectedCity = $('#userInput').val();
+    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + selectedCity + "&appid=" + key; 
 
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(res) {
+
+        //day one 
+
+        //pretty sure there will need to be a comparison here for time
+
+        $('#day1Temp').text(res.list[0].main.temp);
+        $('#day1Hum').text(res.list[0].main.humidity);
+
+        //day two
+
+        $('#day2Temp').text(res.list[5].main.temp);
+        $('#day2Hum').text(res.list[5].main.humidity);
+
+         //day three
+
+        $('#day3Temp').text(res.list[10].main.temp);
+        $('#day3Hum').text(res.list[10].main.humidity);
+
+        //day four
+
+        $('#day4Temp').text(res.list[20].main.temp);
+        $('#day4Hum').text(res.list[20].main.humidity);
+
+        //day four
+
+        $('#day5Temp').text(res.list[30].main.temp);
+        $('#day5Hum').text(res.list[30].main.humidity)
+
+    });
+}
 
 
 
@@ -92,7 +112,10 @@ function localstoragefunc() {
 
 
 //Click Events and Event Listeners
-$(document).on('click', '.btn', searchWeather);
+$(document).on('click', '.btn', function(){
+    searchWeather();
+    fiveDay();
+});
 
 //create click event for when user clicks on previous data 
 
@@ -101,3 +124,4 @@ $(document).on('click', '.btn', searchWeather);
 //space inbetween divs in CSS 
 //button psuedo class border none
 // local storage is ONLY saving one page "session" and not every entry 
+//checking dates with moment and openweather 
