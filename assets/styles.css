@@ -55,11 +55,14 @@ body {
 #searchHistory {
     padding-bottom: 20px;
 }
+
 #currentCityDiv {
     background-color: #227c9d;
 }
 
 #searchResultsDiv {
+    background-color: #F6F7EB;
+    margin: 20px;;
     display: flex;
     flex-direction: column;
     padding: 15px;

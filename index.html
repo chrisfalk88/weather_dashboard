@@ -25,7 +25,7 @@
               <div class="input-group  mb-3">
                 <input type="text" class="form-control" id="userInput" placeholder="Search Cities">
                 <div class="input-group-append">
-                  <button class="btn" type="button" id="button-addon2">Search</button>
+                  <button class="btn" type="button">Search</button>
                 </div>
               </div>
 
@@ -39,13 +39,13 @@
 
           </div>
 
-          <div class="col-1"></div>
 
           <div class="col-8 rounded" id="currentCityDiv">
-              <div class="row" id="searchResultsDiv">
+              <div class="row rounded" id="searchResultsDiv">
 
+                <!-- maybe add a default title?  -->
                 <div id="titleDiv"></div>
-                  <h1><span id="title"></span> <span id="titleDate"></span></h1>
+                  <h1><span id="title"></span> <span id="titleDate"></span> <img id="titleImg"></img></h1>
 
                 <div id="temperatureDiv">
                     <h4>Temperature : <span id="temperature"></span></h4></span>
@@ -66,7 +66,7 @@
               </div>
 
               <hr>
-              
+
               <h2>5 Day Forecast:</h2>
               <div class="row" id="fiveDayForecastDiv">
 
