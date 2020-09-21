@@ -23,8 +23,8 @@ body {
 .searched {
     display: flex;
     height: 50px;
-    background-color: #F6F7EB;
     margin: 5px;
+    background-color: #F6F7EB;
     justify-content: space-around;
     align-items: center;
     font-size: larger;
@@ -32,7 +32,8 @@ body {
 }
 
 .dayDiv {
-    background-color: #F6F7EB;
+    background-color: #227c9d;
+    color: #F6F7EB;
     padding: 15px;
 }
 /* ID's */
@@ -56,12 +57,19 @@ body {
     padding-bottom: 20px;
 }
 
+#fiveDayTitle {
+    color: #393E41;
+}
+
+
 #currentCityDiv {
-    background-color: #227c9d;
+    background-color: #F6F7EB;
+
 }
 
 #searchResultsDiv {
-    background-color: #F6F7EB;
+    background-color: #227c9d;
+    color: #F6F7EB;
     margin: 20px;;
     display: flex;
     flex-direction: column;
@@ -73,4 +81,12 @@ body {
     justify-content: space-around;
     margin-bottom: 20px;;
 }
+
+#fiveDayTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 

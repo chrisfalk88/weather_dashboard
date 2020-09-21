@@ -10,8 +10,6 @@ let key = "35acf8745c429fee89a9063272d6e332";
 //Array of searched Cities
 let searchedCities = [];
 
-
-
 //Functions
 
 //checks local storage and writes to search history
@@ -31,7 +29,7 @@ function createSearchHistory() {
   }
 }
 
-//takes user input from search bad, querries the API, adds searched city to searched history array.
+
 function searchWeather(selectedCity) {
   let queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -66,11 +64,11 @@ function searchWeather(selectedCity) {
     //iconId = response.weather[0].icon;
 
     //convert to Fahrenheit and toFixed(2)
-    $("#temperature").text(response.main.temp);
+    $("#temperature").text(response.main.temp + "\xB0 F");
     //add percentage sign
-    $("#humidity").text(response.main.humidity);
+    $("#humidity").text(response.main.humidity + "%");
     //add MPH
-    $("#windspeed").text(response.wind.speed);
+    $("#windspeed").text(response.wind.speed + " MPH");
 
     $.ajax({
       url: uvURL,
@@ -78,6 +76,19 @@ function searchWeather(selectedCity) {
     }).then(function (response) {
       let UVrating = response.value;
       //create if else statement here to change color to span element
+
+      if (UVrating > 1 && UVrating < 2) {
+        $('#UVIndex').css("background-color", "#8dc443");
+      } else if (UVrating > 2 && UVrating < 5) { 
+        $('#UVIndex').css("background-color", "#fdd835");
+      } else if (UVrating > 5 && UVrating < 7) {
+        $('#UVIndex').css("background-color", "#ffb301");
+      } else if (UVrating > 7 && UVrating < 10) {
+        $('#UVIndex').css("background-color", "#d1394a");
+      } else if (UVrating >= 11) {
+        $('#UVIndex').css("background-color", "#954f71");
+      }
+    
       $("#UVIndex").text(response.value);
     });
   });
@@ -115,42 +126,46 @@ function fiveDay(selectedCity) {
     url: queryURL,
     method: "GET",
   }).then(function (res) {
+    let iconID = res.list[0].weather[0].icon;
+    let iconURL = "https://openweathermap.org/img/wn/" + iconID + "@2x.png";
+
     //day one
-    console.log(new Date());
-    console.log(res);
-
-    // find the current
-    //loop through time variables and test against current hour
-    // then once true, write to page, and then add 8 index
-
-    //pretty sure there will need to be a comparison here for time
-    $("#day1Date").text(today.add(1, "days").format("l"));
-    $("#day1Temp").text(res.list[0].main.temp);
-    $("#day1Hum").text(res.list[0].main.humidity);
+    $("#day1Date").text(today.format("l"));
+    $("#day1Temp").text(res.list[0].main.temp + "\xB0 F");
+    $("#day1Hum").text(res.list[0].main.humidity + "%");
+    $("#day1Img").attr("src", iconURL);
     today = moment();
 
     //day two
-    $("#day2Date").text(today.add(2, "days").format("l"));
-    $("#day2Temp").text(res.list[8].main.temp);
-    $("#day2Hum").text(res.list[8].main.humidity);
+    $("#day2Date").text(today.add(1, "days").format("l"));
+    $("#day2Temp").text(res.list[8].main.temp + "\xB0 F");
+    $("#day2Hum").text(res.list[8].main.humidity + "%");
+    iconID = res.list[8].weather[0].icon;
+    $("#day2Img").attr("src", iconURL);
     today = moment();
 
     //day three
-    $("#day3Date").text(today.add(3, "days").format("l"));
-    $("#day3Temp").text(res.list[16].main.temp);
-    $("#day3Hum").text(res.list[16].main.humidity);
+    $("#day3Date").text(today.add(2, "days").format("l"));
+    $("#day3Temp").text(res.list[16].main.temp + "\xB0 F");
+    $("#day3Hum").text(res.list[16].main.humidity + "%");
+    iconID = res.list[16].weather[0].icon;
+    $("#day3Img").attr("src", iconURL);
     today = moment();
 
     //day four
-    $("#day4Date").text(today.add(4, "days").format("l"));
-    $("#day4Temp").text(res.list[24].main.temp);
-    $("#day4Hum").text(res.list[24].main.humidity);
+    $("#day4Date").text(today.add(3, "days").format("l"));
+    $("#day4Temp").text(res.list[24].main.temp + "\xB0 F");
+    $("#day4Hum").text(res.list[24].main.humidity + "%");
+    iconID = res.list[24].weather[0].icon;
+    $("#day4Img").attr("src", iconURL);
     today = moment();
 
     //day five
-    $("#day5Date").text(today.add(5, "days").format("l"));
-    $("#day5Temp").text(res.list[32].main.temp);
-    $("#day5Hum").text(res.list[32].main.humidity);
+    $("#day5Date").text(today.add(4, "days").format("l"));
+    $("#day5Temp").text(res.list[32].main.temp + "\xB0 F");
+    $("#day5Hum").text(res.list[32].main.humidity + "%");
+    iconID = res.list[32].weather[0].icon;
+    $("#day5Img").attr("src", iconURL);
     today = moment();
   });
 }
@@ -175,4 +190,3 @@ $(document).on("click", ".searched", function () {
 });
 
 createSearchHistory();
-
