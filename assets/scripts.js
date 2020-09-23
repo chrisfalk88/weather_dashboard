@@ -29,6 +29,15 @@ function createSearchHistory() {
   }
 }
 
+function onLoad() {
+  let loadCity = searchedCities[searchedCities.length -1]
+  console.log(loadCity);
+  console.log(typeof(loadCity));
+
+  searchWeather(loadCity);
+  fiveDay(loadCity);
+
+}
 
 function searchWeather(selectedCity) {
   let queryURL =
@@ -190,3 +199,4 @@ $(document).on("click", ".searched", function () {
 });
 
 createSearchHistory();
+onLoad();
